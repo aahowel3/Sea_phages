@@ -10,3 +10,6 @@ For RuvC had to add in the one from Sour
 seqkit grep -r -n -p '.*gene=9.*' Sour_CDS.txt >> DRphages_RuvC.fasta 
 And then manually remove Abt2grad - don't need that out group 
 Totals should be 12 - whole genome 11 - ruvC 6 - HIcA 
+
+location of comparitive paper viruses
+/work/aahowel3/VirHostMatcher_results/onlyDandP_viruses
