@@ -21,5 +21,8 @@ source activate hostrange
 
 HostPhinder: not good - link dead - http://cge.cbs.dtu.dk/services/HostPhinder 
 sources 1 and 2 in the paper https://www.mdpi.com/1999-4915/8/5/116 
+
 PHP - https://github.com/congyulu-bioinfo/PHP
 also has a GUI http://computationalbiology.cn/phageHostPredictor/home.html
+PHP: (hostrange) [aahowel3@c005:/scratch/aahowel3/hostrange]$ python3 PHP/countKmer.py --fastaFileDir  ./KFS-EC3_hosts/ --kmerFileDir ./exampleOutput --kmerName HostKmer  --coreNum -1
+python3 PHP/PHP.py --virusFastaFileDir ./KFS-EC3_virus/  --outFileDir ./exampleOutput  --bacteriaKmerDir ./exampleOutput  --bacteriaKmerName HostKmer
