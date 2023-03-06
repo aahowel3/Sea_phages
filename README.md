@@ -24,5 +24,8 @@ sources 1 and 2 in the paper https://www.mdpi.com/1999-4915/8/5/116
 
 PHP - https://github.com/congyulu-bioinfo/PHP
 also has a GUI http://computationalbiology.cn/phageHostPredictor/home.html
-PHP: (hostrange) [aahowel3@c005:/scratch/aahowel3/hostrange]$ python3 PHP/countKmer.py --fastaFileDir  ./KFS-EC3_hosts/ --kmerFileDir ./exampleOutput --kmerName HostKmer  --coreNum -1
-python3 PHP/PHP.py --virusFastaFileDir ./KFS-EC3_virus/  --outFileDir ./exampleOutput  --bacteriaKmerDir ./exampleOutput  --bacteriaKmerName HostKmer
+PHP: (hostrange) [aahowel3@c005:/scratch/aahowel3/hostrange]$ 
+Only use if you want to use as confirmatory: python3 PHP/countKmer.py --fastaFileDir  ./KFS-EC3_hosts/ --kmerFileDir ./exampleOutput --kmerName HostKmer  --coreNum -1
+
+to use as exploratory: python3 PHP/PHP.py --virusFastaFileDir ./KFS-EC3_virus/  --outFileDir ./exampleOutput  --bacteriaKmerDir ./PHP  --bacteriaKmerName hostKmer_60105_kmer4.tar.gz
+to use as confrimatory: python3 PHP/PHP.py --virusFastaFileDir ./KFS-EC3_virus/  --outFileDir ./exampleOutput  --bacteriaKmerDir ./exampleOutput  --bacteriaKmerName HostKmer
