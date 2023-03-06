@@ -13,3 +13,7 @@ Totals should be 12 - whole genome 11 - ruvC 6 - HIcA
 
 location of comparitive paper viruses
 /work/aahowel3/VirHostMatcher_results/onlyDandP_viruses
+
+NEW YEAR NEW DIRECTORY BABY
+SOL - /scratch/hostrange
+source activate hostrange
