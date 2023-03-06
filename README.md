@@ -17,3 +17,9 @@ location of comparitive paper viruses
 NEW YEAR NEW DIRECTORY BABY
 SOL - /scratch/hostrange
 source activate hostrange
+
+
+HostPhinder: not good - link dead - http://cge.cbs.dtu.dk/services/HostPhinder 
+sources 1 and 2 in the paper https://www.mdpi.com/1999-4915/8/5/116 
+PHP - https://github.com/congyulu-bioinfo/PHP
+also has a GUI http://computationalbiology.cn/phageHostPredictor/home.html
