@@ -1,6 +1,7 @@
 library(taxonomizr)
 #setwd("C:/Users/Owner/OneDrive - Arizona State University/Documents/SEA-Phages/")
 
+prepareDatabase('accessionTaxa.sql')
 hosts=read.csv("HostAccession_BB.csv")
 host_list=apply(hosts,1,as.vector)
 
