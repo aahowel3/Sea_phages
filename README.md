@@ -29,3 +29,18 @@ Only use if you want to use as confirmatory: python3 PHP/countKmer.py --fastaFil
 
 to use as exploratory: python3 PHP/PHP.py --virusFastaFileDir ./KFS-EC3_virus/  --outFileDir ./exampleOutput  --bacteriaKmerDir ./PHP  --bacteriaKmerName hostKmer_60105_kmer4.tar.gz
 to use as confrimatory: python3 PHP/PHP.py --virusFastaFileDir ./KFS-EC3_virus/  --outFileDir ./exampleOutput  --bacteriaKmerDir ./exampleOutput  --bacteriaKmerName HostKmer
+
+WISH - has to be run on agave - thats where CYs null directories are
+new superdiverse null directory created by copying these directories of Cy into my /scratch/hostrange/null
+[aahowel3@agave3:/scratch/aahowel3/hostrange/null]$ cp /scratch/cversoza/sea_phages_spring_2022/wish/null/* .
+[aahowel3@agave3:/scratch/aahowel3/hostrange/null]$ cp /scratch/cversoza/sea_phages_spring_2022/wish/cluster_P/* .
+[aahowel3@agave3:/scratch/aahowel3/hostrange/null]$ cp /scratch/cversoza/sea_phages_spring_2022/wish/paper_gordonia_phages/* .
+[aahowel3@agave3:/scratch/aahowel3/hostrange/null]$ cp /scratch/cversoza/sea_phages_spring_2022/wish/hhmi_gordonia_phages/* .
+
+Create host model directory 
+WIsH/WIsH -c build -g KFS-EC3_hosts/ -m modelDir 
+Run on null to get llikelihood.matrix in outputNullModelResultDir to feed into computeNullParameters.R 
+WIsH/WIsH -c predict -g null/ -m modelDir -r outputNullModelResultDir -b 1
+[aahowel3@cg47-1:/scratch/aahowel3/hostrange/outputNullModelResultDir]$ Rscript ../WIsH/computeNullParameters.R
+[aahowel3@cg47-1:/scratch/aahowel3/hostrange]$ WIsH/WIsH -c predict -g KFS-EC3_virus/ -m modelDir -r outputResultDir -b 20 -n outputNullModelResultDir/nullParameters.tsv
+change b to 1000 or larger to list all the hosts 
