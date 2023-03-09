@@ -45,6 +45,7 @@ WIsH/WIsH -c predict -g null/ -m modelDir -r outputNullModelResultDir -b 1
 [aahowel3@cg47-1:/scratch/aahowel3/hostrange]$ WIsH/WIsH -c predict -g KFS-EC3_virus/ -m modelDir -r outputResultDir -b 20 -n outputNullModelResultDir/nullParameters.tsv
 change b to 1000 or larger to list all the hosts 
 
+VHM - realized you dont need a taxonomizer file
 
 VHMN
 ssh aahowel3@login05.osgconnect.net
