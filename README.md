@@ -36,6 +36,7 @@ new superdiverse null directory created by copying these directories of Cy into 
 [aahowel3@agave3:/scratch/aahowel3/hostrange/null]$ cp /scratch/cversoza/sea_phages_spring_2022/wish/cluster_P/* .
 [aahowel3@agave3:/scratch/aahowel3/hostrange/null]$ cp /scratch/cversoza/sea_phages_spring_2022/wish/paper_gordonia_phages/* .
 [aahowel3@agave3:/scratch/aahowel3/hostrange/null]$ cp /scratch/cversoza/sea_phages_spring_2022/wish/hhmi_gordonia_phages/* .
+***youve also copied every test virus from the VMH 352 test folder into null to train it as well
 
 Create host model directory 
 WIsH/WIsH -c build -g KFS-EC3_hosts/ -m modelDir 
