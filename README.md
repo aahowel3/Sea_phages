@@ -44,3 +44,14 @@ WIsH/WIsH -c predict -g null/ -m modelDir -r outputNullModelResultDir -b 1
 [aahowel3@cg47-1:/scratch/aahowel3/hostrange/outputNullModelResultDir]$ Rscript ../WIsH/computeNullParameters.R
 [aahowel3@cg47-1:/scratch/aahowel3/hostrange]$ WIsH/WIsH -c predict -g KFS-EC3_virus/ -m modelDir -r outputResultDir -b 20 -n outputNullModelResultDir/nullParameters.tsv
 change b to 1000 or larger to list all the hosts 
+
+
+VHMN
+ssh aahowel3@login05.osgconnect.net
+apptainer build my-container.sif image.def (only once if it complies right)
+apptainer shell my-container.sif
+cd /opt/miniconda/bin 
+. activate 
+cd
+python /opt/VirHostMatcher-Net/VirHostMatcher-Net.py -q /opt/VirHostMatcher-Net/test/VGs -o output -i tmp -n 3 -t 8
+
