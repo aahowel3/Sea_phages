@@ -47,6 +47,7 @@ WIsH/WIsH -c predict -g null/ -m modelDir -r outputNullModelResultDir -b 1000
 change b to 1000 or larger to list all the hosts 
 
 VHM - realized you dont need a taxonomizer file
+[aahowel3@cg47-1:/scratch/aahowel3/hostrange]$ python VirHostMatcher/vhm.py -v HY01_virus/ -b HY01_hosts/ -o HY01_VHMoutput
 
 VHMN
 ssh aahowel3@login05.osgconnect.net
