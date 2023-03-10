@@ -41,9 +41,9 @@ new superdiverse null directory created by copying these directories of Cy into 
 Create host model directory 
 WIsH/WIsH -c build -g KFS-EC3_hosts/ -m modelDir 
 Run on null to get llikelihood.matrix in outputNullModelResultDir to feed into computeNullParameters.R 
-WIsH/WIsH -c predict -g null/ -m modelDir -r outputNullModelResultDir -b 1
+WIsH/WIsH -c predict -g null/ -m modelDir -r outputNullModelResultDir -b 1000
 [aahowel3@cg47-1:/scratch/aahowel3/hostrange/outputNullModelResultDir]$ Rscript ../WIsH/computeNullParameters.R
-[aahowel3@cg47-1:/scratch/aahowel3/hostrange]$ WIsH/WIsH -c predict -g KFS-EC3_virus/ -m modelDir -r outputResultDir -b 20 -n outputNullModelResultDir/nullParameters.tsv
+[aahowel3@cg47-1:/scratch/aahowel3/hostrange]$ WIsH/WIsH -c predict -g KFS-EC3_virus/ -m modelDir -r outputResultDir -b 1000 -n outputNullModelResultDir/nullParameters.tsv
 change b to 1000 or larger to list all the hosts 
 
 VHM - realized you dont need a taxonomizer file
