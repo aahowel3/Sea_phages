@@ -58,3 +58,6 @@ cd /opt/miniconda/bin
 cd
 python /opt/VirHostMatcher-Net/VirHostMatcher-Net.py -q /opt/VirHostMatcher-Net/test/VGs -o output -i tmp -n 3 -t 8
 if you need older: https://repo.anaconda.com/miniconda/
+
+Phirbo:
+python phirbo/phirbo.py KFS-EC3_virusblast/ KFS-EC3_hostsblast/ KFS-EC3_phirbo/predictions.csv 
