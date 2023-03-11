@@ -60,4 +60,6 @@ python /opt/VirHostMatcher-Net/VirHostMatcher-Net.py -q /opt/VirHostMatcher-Net/
 if you need older: https://repo.anaconda.com/miniconda/
 
 Phirbo:
+to prep the databases use: blast_forphirbo.sh 
+you need to have taxdb.btd, taxdb.bti, taxdb.tar.gz downloaded
 python phirbo/phirbo.py KFS-EC3_virusblast/ KFS-EC3_hostsblast/ KFS-EC3_phirbo/predictions.csv 
