@@ -57,5 +57,5 @@ you need to have taxdb.btd, taxdb.bti, taxdb.tar.gz downloaded
 python phirbo/phirbo.py KFS-EC3_virusblast/ KFS-EC3_hostsblast/ KFS-EC3_phirbo/predictions.csv 
 
 PHP - https://github.com/congyulu-bioinfo/PHP
-(hostrange) [aahowel3@agave1:/scratch/aahowel3/hostrange]$ python3 PHP/countKmer.py -f KFS-EC3_hosts -d KFS-EC3_PHPkmer -n PHPHostKmer -c -1
-(hostrange) [aahowel3@agave1:/scratch/aahowel3/hostrange]$ python3 PHP/PHP.py -v KFS-EC3_virus -o KFS-EC3PHPout  -d KFS-EC3_PHPkmer -n PHPHostKmer
+(hostrange) [aahowel3@agave1:/scratch/aahowel3/hostrange]$ python3 PHP/countKmer.py -f KFS-EC3_hosts -d KFS-EC3_PHPkmer -n KFS-EC3_PHPHostKmer -c -1
+(hostrange) [aahowel3@agave1:/scratch/aahowel3/hostrange]$ python3 PHP/PHP.py -v KFS-EC3_virus -o KFS-EC3PHPout  -d KFS-EC3_PHPkmer -n KFS-EC3_PHPHostKmer
