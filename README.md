@@ -22,14 +22,6 @@ source activate hostrange
 HostPhinder: not good - link dead - http://cge.cbs.dtu.dk/services/HostPhinder 
 sources 1 and 2 in the paper https://www.mdpi.com/1999-4915/8/5/116 
 
-PHP - https://github.com/congyulu-bioinfo/PHP
-also has a GUI http://computationalbiology.cn/phageHostPredictor/home.html
-PHP: (hostrange) [aahowel3@c005:/scratch/aahowel3/hostrange]$ 
-Only use if you want to use as confirmatory: python3 PHP/countKmer.py --fastaFileDir  ./KFS-EC3_hosts/ --kmerFileDir ./exampleOutput --kmerName HostKmer  --coreNum -1
-
-to use as exploratory: python3 PHP/PHP.py --virusFastaFileDir ./KFS-EC3_virus/  --outFileDir ./exampleOutput  --bacteriaKmerDir ./PHP  --bacteriaKmerName hostKmer_60105_kmer4.tar.gz
-to use as confrimatory: python3 PHP/PHP.py --virusFastaFileDir ./KFS-EC3_virus/  --outFileDir ./exampleOutput  --bacteriaKmerDir ./exampleOutput  --bacteriaKmerName HostKmer
-
 WISH - has to be run on agave - thats where CYs null directories are
 new superdiverse null directory created by copying these directories of Cy into my /scratch/hostrange/null
 [aahowel3@agave3:/scratch/aahowel3/hostrange/null]$ cp /scratch/cversoza/sea_phages_spring_2022/wish/null/* .
@@ -63,3 +55,7 @@ Phirbo:
 to prep the databases use: blast_forphirbo.sh 
 you need to have taxdb.btd, taxdb.bti, taxdb.tar.gz downloaded
 python phirbo/phirbo.py KFS-EC3_virusblast/ KFS-EC3_hostsblast/ KFS-EC3_phirbo/predictions.csv 
+
+PHP - https://github.com/congyulu-bioinfo/PHP
+(hostrange) [aahowel3@agave1:/scratch/aahowel3/hostrange]$ python3 PHP/countKmer.py -f KFS-EC3_hosts -d KFS-EC3_PHPkmer -n PHPHostKmer -c -1
+(hostrange) [aahowel3@agave1:/scratch/aahowel3/hostrange]$ python3 PHP/PHP.py -v KFS-EC3_virus -o KFS-EC3PHPout  -d KFS-EC3_PHPkmer -n PHPHostKmer
