@@ -72,3 +72,6 @@ column 3
 awk  'BEGIN { FS = "protein=" } ; { print $2 }' KFS-EC3.protein.names.txt |  awk  'BEGIN { FS = "\]" } ; { print $1 }' | head 
 merge with
 paste -d',' column1.txt column2.txt column3.txt
+
+PHIST
+for x in *; do python ../PHIST/phist.py ../HY01_virus $x ${x}_out; done
