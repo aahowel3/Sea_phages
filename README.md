@@ -74,4 +74,12 @@ merge with
 paste -d',' column1.txt column2.txt column3.txt
 
 PHIST
+copied HY01_hosts into HY01hosts2
+create directory for each fasta file:
+cd ParentFolder
+for x in ./*.txt; do
+  mkdir "${x%.*}" && mv "$x" "${x%.*}"
+done
+
+Run phist on each file in that directroy 
 for x in *; do python ../PHIST/phist.py ../HY01_virus $x ${x}_out; done
