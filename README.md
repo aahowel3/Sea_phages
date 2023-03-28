@@ -83,3 +83,6 @@ done
 
 Run phist on each file in that directroy 
 for x in *; do python ../PHIST/phist.py ../HY01_virus $x ${x}_out; done
+
+combine all predictions.csv
+find . -name 'predictions.csv' -exec cat {} \; > allpredictions.csv
