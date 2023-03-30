@@ -79,7 +79,7 @@ HostG absolute pain
 1. add phage to nuc.fasta (cat genome onto it) and add protein to protein.fasta (obtained ncbi) 
 2. add to database_gene_togenome file - use commands below to create same format to tack onto 
 grep "^>" KFS-EC3.protein.fasta > KFS-EC3.protein.names.txt
-column1
+column1cd /op 
 awk  'BEGIN { FS = "prot_" } ; { print $2 }' KFS-EC3.protein.names.txt |  awk  'BEGIN { FS = " " } ; { print $1 }' | head 
 column2 
 awk  'BEGIN { FS = "|" } ; { print $2 }' KFS-EC3.protein.names.txt |  awk  'BEGIN { FS = "_prot" } ; { print $1 }' | head
@@ -95,4 +95,5 @@ cp /home/aahowel3/KFS-EC3_virus/KFS-EC3.fasta dataset/nucl.fasta
 CHERRY
 Add hosts to new_prokaryote directory 
 Delete everything inside prokaryote directory first - saves time
-Inside the CHERRY folder: python run_Speed_up.py --contigs ../KFS-EC3_virus/KFS-EC3.fasta --mode prokaryote --t 0.98
+cat KFS-EC3_taxonomy.csv >> CHERRY/dataset/prokaryote.csv
+Inside the CHERRY folder: python run_Speed_up.py --contigs ../KFS-EC3_virus/KFS-EC3.fasta --mode prokaryote --t 0.0
