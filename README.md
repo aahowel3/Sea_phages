@@ -60,19 +60,6 @@ PHP - https://github.com/congyulu-bioinfo/PHP
 (hostrange) [aahowel3@agave1:/scratch/aahowel3/hostrange]$ python3 PHP/countKmer.py -f KFS-EC3_hosts -d KFS-EC3_PHPkmer -n KFS-EC3_PHPHostKmer -c -1
 (hostrange) [aahowel3@agave1:/scratch/aahowel3/hostrange]$ python3 PHP/PHP.py -v KFS-EC3_virus -o KFS-EC3_PHPout  -d KFS-EC3_PHPkmer -n KFS-EC3_PHPHostKmer
 
-HostG absolute pain 
-1. add phage to nuc.fasta (cat genome onto it) and add protein to protein.fasta (obtained ncbi) 
-2. add to database_gene_togenome file - use commands below to create same format to tack onto 
-grep "^>" KFS-EC3.protein.fasta > KFS-EC3.protein.names.txt
-column1
-awk  'BEGIN { FS = "prot_" } ; { print $2 }' KFS-EC3.protein.names.txt |  awk  'BEGIN { FS = " " } ; { print $1 }' | head 
-column2 
-awk  'BEGIN { FS = "|" } ; { print $2 }' KFS-EC3.protein.names.txt |  awk  'BEGIN { FS = "_prot" } ; { print $1 }' | head
-column 3
-awk  'BEGIN { FS = "protein=" } ; { print $2 }' KFS-EC3.protein.names.txt |  awk  'BEGIN { FS = "\]" } ; { print $1 }' | head 
-merge with
-paste -d',' column1.txt column2.txt column3.txt
-
 PHIST
 copied HY01_hosts into HY01hosts2
 create directory for each fasta file:
@@ -88,6 +75,24 @@ find . -name 'predictions.csv' -exec cat {} \; > allpredictions.csv
 
 A note on HostG/CHERRY/PHAIST that need to be run on OSG - have to do all the conda installs in the spin up and then git clone tools in home directory since you can't touch those directories created in the spin up after the fact
 
+HostG absolute pain 
+1. add phage to nuc.fasta (cat genome onto it) and add protein to protein.fasta (obtained ncbi) 
+2. add to database_gene_togenome file - use commands below to create same format to tack onto 
+grep "^>" KFS-EC3.protein.fasta > KFS-EC3.protein.names.txt
+column1
+awk  'BEGIN { FS = "prot_" } ; { print $2 }' KFS-EC3.protein.names.txt |  awk  'BEGIN { FS = " " } ; { print $1 }' | head 
+column2 
+awk  'BEGIN { FS = "|" } ; { print $2 }' KFS-EC3.protein.names.txt |  awk  'BEGIN { FS = "_prot" } ; { print $1 }' | head
+column 3
+awk  'BEGIN { FS = "protein=" } ; { print $2 }' KFS-EC3.protein.names.txt |  awk  'BEGIN { FS = "\]" } ; { print $1 }' | head 
+merge with
+paste -d',' column1.txt column2.txt column3.txt
+
+cp /home/aahowel3/KFS-EC3_virus/KFS-EC3.fasta dataset/nucl.fasta
+    cp /home/aahowel3/KFS-EC3.protein.fasta dataset/protein.fasta
+    cp /home/aahowel3/KFS-EC3.protein.names.sorted.txt dataset/database_gene_to_genome.csv
+
+CHERRY
 Add hosts to new_prokaryote directory 
 Delete everything inside prokaryote directory first - saves time
 Inside the CHERRY folder: python run_Speed_up.py --contigs ../KFS-EC3_virus/KFS-EC3.fasta --mode prokaryote --t 0.98
