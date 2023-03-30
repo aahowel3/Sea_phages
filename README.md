@@ -87,3 +87,7 @@ combine all predictions.csv
 find . -name 'predictions.csv' -exec cat {} \; > allpredictions.csv
 
 A note on HostG/CHERRY/PHAIST that need to be run on OSG - have to do all the conda installs in the spin up and then git clone tools in home directory since you can't touch those directories created in the spin up after the fact
+
+Add hosts to new_prokaryote directory 
+Delete everything inside prokaryote directory first - saves time
+Inside the CHERRY folder: python run_Speed_up.py --contigs ../KFS-EC3_virus/KFS-EC3.fasta --mode prokaryote --t 0.98
