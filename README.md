@@ -88,9 +88,9 @@ awk  'BEGIN { FS = "protein=" } ; { print $2 }' KFS-EC3.protein.names.txt |  awk
 merge with
 paste -d',' column1.txt column2.txt column3.txt
 
-cp /home/aahowel3/KFS-EC3_virus/KFS-EC3.fasta dataset/nucl.fasta
-    cp /home/aahowel3/KFS-EC3.protein.fasta dataset/protein.fasta
-    cp /home/aahowel3/KFS-EC3.protein.names.sorted.txt dataset/database_gene_to_genome.csv
+cat /home/aahowel3/KFS-EC3_virus/KFS-EC3.fasta dataset/nucl.fasta
+    cat /home/aahowel3/KFS-EC3.protein.fasta dataset/protein.fasta
+    cat /home/aahowel3/KFS-EC3.protein.names.sorted.txt dataset/database_gene_to_genome.csv
 
 CHERRY
 Add hosts to new_prokaryote directory 
