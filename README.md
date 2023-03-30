@@ -88,12 +88,16 @@ awk  'BEGIN { FS = "protein=" } ; { print $2 }' KFS-EC3.protein.names.txt |  awk
 merge with
 paste -d',' column1.txt column2.txt column3.txt
 
-cat /home/aahowel3/KFS-EC3_virus/KFS-EC3.fasta dataset/nucl.fasta
-    cat /home/aahowel3/KFS-EC3.protein.fasta dataset/protein.fasta
-    cat /home/aahowel3/KFS-EC3.protein.names.sorted.txt dataset/database_gene_to_genome.csv
+mv outs to actual filename
+awk 1 /home/aahowel3/KFS-EC3_virus/KFS-EC3.fasta dataset/nucl.fasta > out
+awk 1 /home/aahowel3/KFS-EC3.protein.fasta dataset/protein.fasta > out
+awk 1 /home/aahowel3/KFS-EC3.protein.names.sorted.txt dataset/database_gene_to_genome.csv > out
+    
+In hostG folder: python run_Speed_up.py --contigs ../KFS-EC3_virus/KFS-EC3.fasta --len 8000 --t 0
 
 CHERRY
 Add hosts to new_prokaryote directory 
 Delete everything inside prokaryote directory first - saves time
-cat KFS-EC3_taxonomy.csv >> CHERRY/dataset/prokaryote.csv
+awk 1 KFS-EC3_taxonomy.csv CHERRY/dataset/prokaryote.csv > out 
+mv out prokaryote.csv
 Inside the CHERRY folder: python run_Speed_up.py --contigs ../KFS-EC3_virus/KFS-EC3.fasta --mode prokaryote --t 0.0
