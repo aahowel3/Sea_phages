@@ -73,6 +73,8 @@ for x in *; do python ../PHIST/phist.py ../HY01_virus $x ${x}_out; done
 combine all predictions.csv
 find . -name 'predictions.csv' -exec cat {} \; > allpredictions.csv
 
+^^^actually dont do this - every prediction comes out weird just run it all together and take the top prediction and list that as a limitation 
+
 A note on HostG/CHERRY/PHAIST that need to be run on OSG - have to do all the conda installs in the spin up and then git clone tools in home directory since you can't touch those directories created in the spin up after the fact
 
 HostG absolute pain 
