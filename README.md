@@ -101,3 +101,6 @@ Delete everything inside prokaryote directory first - saves time
 awk 1 CHERRY/dataset/prokaryote.csv KFS-EC3_taxonomy.csv > out 
 mv out prokaryote.csv - file with header in it HAS to be appended first 
 Inside the CHERRY folder: python run_Speed_up.py --contigs ../KFS-EC3_virus/KFS-EC3.fasta --mode prokaryote --t 0.0
+
+PHIAF: In PHIAF directroy: python code/compute_dna_features.py (no other arguments just have allphage_dna_seq.fasta and allhost_dna_seq.fasta in PHAIF folder - those are what your input viruses and hosts need to be renamed to) 
+dies at this step with connection reset cant tell if its finishing or not - may have to do a slurm job send off to work
