@@ -61,7 +61,7 @@ PHP - https://github.com/congyulu-bioinfo/PHP
 (hostrange) [aahowel3@agave1:/scratch/aahowel3/hostrange]$ python3 PHP/PHP.py -v KFS-EC3_virus -o KFS-EC3_PHPout  -d KFS-EC3_PHPkmer -n KFS-EC3_PHPHostKmer
 
 PHIST
-copied HY01_hosts into HY01hosts2
+copied HY01_hosts into HY01hosts_indiv
 create directory for each fasta file:
 cd ParentFolder
 for x in ./*.txt; do
