@@ -77,7 +77,7 @@ A note on HostG/CHERRY/PHAIST that need to be run on OSG - have to do all the co
 
 HostG absolute pain 
 1. add phage to nuc.fasta (cat genome onto it) and add protein to protein.fasta (obtained ncbi) 
-2. add to database_gene_togenome file - use commands below to create same format to tack onto 
+2. add to database_gene_togenome file - use commands below to create same format to tack onto d
 grep "^>" KFS-EC3.protein.fasta > KFS-EC3.protein.names.txt
 column1cd /op 
 awk  'BEGIN { FS = "prot_" } ; { print $2 }' KFS-EC3.protein.names.txt |  awk  'BEGIN { FS = " " } ; { print $1 }' | head 
