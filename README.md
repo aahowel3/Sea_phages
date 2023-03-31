@@ -1,5 +1,8 @@
 # Sea_phages
 
+April 2023 plotting - all likelihood plots are in wish.R which is in /hostrange/WISH 
+upsetRcomparitive is also in /hostrange/WISH
+
 #July 2022 reruns 
 Cluster DR phages in folder /work/aahowel3/DR_paper_rerun
 New gene specific CDS files created via seqkit commands - MarioKart Hic gene added manually since its unlabeled 
