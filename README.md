@@ -109,3 +109,16 @@ Inside the CHERRY folder: python run_Speed_up.py --contigs ../KFS-EC3_virus/KFS-
 
 PHIAF: In PHIAF directroy: python code/compute_dna_features.py (no other arguments just have allphage_dna_seq.fasta and allhost_dna_seq.fasta in PHAIF folder - those are what your input viruses and hosts need to be renamed to) 
 dies at this step with connection reset cant tell if its finishing or not - may have to do a slurm job send off to work
+
+VHMN in main directory: python /opt/VirHostMatcher-Net/VirHostMatcher-Net.py -q KFS-EC3_virus/ -o vhmn_output -n 1000 
+*specifiy output directory or youoll never find it
+
+HostG in hostg directory:  python run_Speed_up.py --contigs ../KFS-EC3_virus/KFS-EC3.fasta --t 0 
+*can only do to genus level and only output 1 result - mildly dissapointing 
+
+RAFAH in rafah directory: perl RaFAH.pl --predict --genomes_dir ../KFS-EC3_virus/ --extension .fasta --file_prefix RaFAH_1 
+perl RaFAH.pl --predict --genomes_dir Genomes/ --extension .fasta --valid_ogs_file HP_Ranger_Model_3_Valid_Cols.txt --hmmer_db_file_name HP_Ranger_Model_3_Filtered_0.9_Valids.hmm --r_script_predict_file_name RaFAH_Predict_Host.R --r_model_file_name MMSeqs_Clusters_Ranger_Model_1+2+3_Clean.RData
+
+CHERRY in cherry: python run_Speed_up.py --contigs ../KFS-EC3_virus/KFS-EC3.fasta --model pretrain --topk 1000 
+
+Deephost: python DeepHost.py ../KFS-EC3_virus/KFS-EC3.fasta --out Output_name.txt --rank species 
