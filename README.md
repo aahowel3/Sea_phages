@@ -121,6 +121,6 @@ perl RaFAH.pl --predict --genomes_dir Genomes/ --extension .fasta --valid_ogs_fi
 
 CHERRY in cherry: python run_Speed_up.py --contigs ../KFS-EC3_virus/KFS-EC3.fasta --model pretrain --topk 1000 
 
-Deephost: python DeepHost.py ../KFS-EC3_virus/KFS-EC3.fasta --out Output_name.txt --rank species 
+Deephost in DeepHost/DeepHost_scripts: python DeepHost.py ../KFS-EC3_virus/KFS-EC3.fasta --out Output_name.txt --rank species 
 
 Vhulk:  python vHULK.py -i ../KFS-EC3_virus/ -o OUTPUT_DIR --all
