@@ -1,5 +1,7 @@
 # Sea_phages
 
+Where is our assembly data? /scratch/spfeife1/bacterial_hosts
+
 April 2023 plotting - all likelihood plots are in wish.R which is in /hostrange/WISH 
 upsetRcomparitive is also in /hostrange/WISH
 
