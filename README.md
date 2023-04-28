@@ -1,6 +1,7 @@
 # Sea_phages
 
 Where is our assembly data? /scratch/spfeife1/bacterial_hosts
+
 Where are our tree outputs? 10.210.91.237 - conda activate gtotree - do not run in tmux will not work
 
 April 2023 plotting - all likelihood plots are in wish.R which is in /hostrange/WISH 
