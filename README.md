@@ -6,6 +6,8 @@ Where are our tree outputs? 10.210.91.237 - conda activate gtotree - do not run 
 
 ANI outputs in under /scratch/aahowel3/hostrange/ANI/HY01_ANI ANIb_percentage_identity.names.txt 
 
+prokka is in /scratch/aahowel3/hostrange/KFS-EC3_hosts 
+
 April 2023 plotting - all likelihood plots are in wish.R which is in /hostrange/WISH 
 upsetRcomparitive is also in /hostrange/WISH
 
