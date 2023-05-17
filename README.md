@@ -8,6 +8,13 @@ ANI outputs in under /scratch/aahowel3/hostrange/ANI/HY01_ANI ANIb_percentage_id
 
 prokka is in /scratch/aahowel3/hostrange/KFS-EC3_hosts 
 
+script to get only desired species to extract their GCF numbers in lab desktop 1 - /Users/pfeiferlab/Documents/hostrange/taxons_forANIs.R
+produces outfile that then in command line run you run bit-dl-ncbi-assemblies -w ncbi_accessions.txt -f fasta (IN BIT CONDA ENVO)
+then you cat all those and run anvi-script-compute-ani-for-fasta -f gordonia_db_hosts_all_renamed.fasta -o ani_gordoniadb_output --method ANIb (IN ANVIO CONDA ENVO)
+(might ask you to run rename first - anvi-script-reformat-fasta gordonia_db_hosts_all.fasta -o gordonia_db_hosts_all_renamed.fasta --simplify-names
+
+anvi-script-compute-ani-for-fasta -f gordonia_db_hosts_all_renamed.fasta -o ani_gordoniadb_output --method ANIb 
+
 April 2023 plotting - all likelihood plots are in wish.R which is in /hostrange/WISH 
 upsetRcomparitive is also in /hostrange/WISH
 
