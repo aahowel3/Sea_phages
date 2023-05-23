@@ -8,6 +8,9 @@ ANI outputs in under /scratch/aahowel3/hostrange/ANI/HY01_ANI ANIb_percentage_id
 
 prokka is in /scratch/aahowel3/hostrange/KFS-EC3_hosts 
 
+whoops alignment was generated with minimap2 from this asynt tutorial not mummer my bad
+https://github.com/simonhmartin/asynt
+
 script to get only desired species to extract their GCF numbers in lab desktop 1 - /Users/pfeiferlab/Documents/hostrange/taxons_forANIs.R
 produces outfile that then in command line run you run bit-dl-ncbi-assemblies -w ncbi_accessions.txt -f fasta (IN BIT CONDA ENVO)
 then you cat all those and run anvi-script-compute-ani-for-fasta -f gordonia_db_hosts_all_renamed.fasta -o ani_gordoniadb_output --method ANIb -T 10 (10 cores on local deskptop IN ANVIO CONDA ENVO)
