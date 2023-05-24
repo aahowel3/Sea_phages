@@ -7,6 +7,8 @@ Where are our tree outputs? 10.210.91.237 - conda activate gtotree - do not run 
 ANI outputs in under /scratch/aahowel3/hostrange/ANI/HY01_ANI ANIb_percentage_identity.names.txt 
 
 prokka is in /scratch/aahowel3/hostrange/KFS-EC3_hosts 
+moved prokka and blasts alignments to within /scratch/aahowel3/hostrange/KFS-EC3_hosts_long - dont want the intervals of a plasmid to be confused with the actual genome intervals 
+used blast alignments to match to BRIG figureinstead of minimap2 now
 
 whoops alignment was generated with minimap2 from this asynt tutorial not mummer my bad
 https://github.com/simonhmartin/asynt
