@@ -2,25 +2,19 @@
 
 Where is our assembly data? /scratch/spfeife1/bacterial_hosts
 
-Where are our tree outputs? 10.210.91.237 - conda activate gtotree - do not run in tmux will not work
+WHere are our confirmatory tools outputs - raw in agave /scratch/aahowel3/hostrange - cleaned and downloaded in local /Documents/hostrange/WISH/formanuscript
+Where are our explortory tool outputs - raw on osg or cleaned in hostrange/exploratory results 
 
-ANI outputs in under /scratch/aahowel3/hostrange/ANI/HY01_ANI ANIb_percentage_identity.names.txt 
+ANIs: for the exploratory database ANIs the script to get only desired species to extract their GCF numbers in lab desktop #1 10.210.91.237- /Users/pfeiferlab/Documents/hostrange/taxons_forANIs.R this produces outfile that then in command line run you run bit-dl-ncbi-assemblies -w ncbi_accessions.txt -f fasta (IN BIT CONDA ENVO)
+then you cat all those and run anvi-script-compute-ani-for-fasta -f gordonia_db_hosts_all_renamed.fasta -o ani_gordoniadb_output --method ANIb -T 10 (10 cores on local deskptop IN ANVIO CONDA ENVO)
+(might ask you to run rename first - anvi-script-reformat-fasta gordonia_db_hosts_all.fasta -o gordonia_db_hosts_all_renamed.fasta --simplify-names. You also need to run long_script.py to pull out only longest contig so the ANI was run faster 
 
-prokka is in /scratch/aahowel3/hostrange/KFS-EC3_hosts 
-moved prokka and blasts alignments to within /scratch/aahowel3/hostrange/KFS-EC3_hosts_long - dont want the intervals of a plasmid to be confused with the actual genome intervals 
-used blast alignments to match to BRIG figureinstead of minimap2 now
+Synteny graphs: prokka and blasts alignments that feed into the synteny.R scripts are in agave /scratch/aahowel3/hostrange/KFS-EC3_hosts_long - dont want the intervals of a plasmid to be confused with the actual genome intervals. synteny.R is to get the regions for 10536 and synteny_2.R is to get regions for non-infectable bacteria 
 
-whoops alignment was generated with minimap2 from this asynt tutorial not mummer my bad
+ended up using blast and BRIG instead of asynt and minimap2 to visuzliaze nonhomolgous regions but tutorial was very helpful 
 https://github.com/simonhmartin/asynt
 
-script to get only desired species to extract their GCF numbers in lab desktop 1 - /Users/pfeiferlab/Documents/hostrange/taxons_forANIs.R
-produces outfile that then in command line run you run bit-dl-ncbi-assemblies -w ncbi_accessions.txt -f fasta (IN BIT CONDA ENVO)
-then you cat all those and run anvi-script-compute-ani-for-fasta -f gordonia_db_hosts_all_renamed.fasta -o ani_gordoniadb_output --method ANIb -T 10 (10 cores on local deskptop IN ANVIO CONDA ENVO)
-(might ask you to run rename first - anvi-script-reformat-fasta gordonia_db_hosts_all.fasta -o gordonia_db_hosts_all_renamed.fasta --simplify-names
-
-you also need to run long_script.py to pull out only longest contig 
-
-anvi-script-compute-ani-for-fasta -f gordonia_db_hosts_all_renamed.fasta -o ani_gordoniadb_output --method ANIb 
+Where are our tree outputs? pfeiferlab computer #1 10.210.91.237 - conda activate gtotree - do not run in tmux will not work
 
 April 2023 plotting - all likelihood plots are in wish.R which is in /hostrange/WISH 
 upsetRcomparitive is also in /hostrange/WISH
