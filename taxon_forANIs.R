@@ -1,4 +1,18 @@
 #start here 
+#sadness - check names in null WISH directory
+setwd("/Users/pfeiferlab/Documents/hostrange/")
+names=read.csv("nameslist.csv", header=FALSE)
+setwd("/Users/pfeiferlab/")
+library(taxonomizr)
+taxaId<-taxonomizr::accessionToTaxa(names$V1,"accessionTaxa.sql")
+output=as.data.frame(getTaxonomy(taxaId,'accessionTaxa.sql'))
+
+output$name=names$V1
+output2=output[grepl("Escherichia|Entero|Gordonia|Nocardia|Rhodococcus|Salmonella|
+                     Shigella|Aeromonas|Bac", output$species),]
+setwd("/Users/pfeiferlab/Documents/hostrange/")
+write.csv(output2, "remove.names.csv")
+
 setwd("/Users/pfeiferlab/Downloads/")
 php=read.csv("60105Taxonomy.txt",header=FALSE, sep="\t")
 vhmn=read.csv("hostTaxa_VHMN.csv",header=FALSE)
@@ -79,6 +93,9 @@ ani.dat <- ani.dat %>%
   select(Gordonia_hydrophobica_44015, Gordonia_malaquae_44454,
          Gordonia_malaquae_44464, Gordonia_rubripertincta_DSM_43197, Gordonia_terrae_43249, everything())
 
+#select only first 5
+#this is speciically for the evolution talk nice zoomed in cersion
+#ani.dat=ani.dat[1:5]
 
 data = cor(ani.dat[sapply(ani.dat, is.numeric)])
 data1 <- melt(data)
@@ -88,10 +105,16 @@ ggplot(data1, aes(Var1, Var2)) +
   geom_tile(aes(fill=value)) +
   scale_fill_viridis() + # nice color scheme!ß
   theme(axis.text = element_text(face="bold"), # make the axis labels bold to make it more readable
-        axis.text.x = element_text(angle = 45, vjust = 1, hjust=1), # make the x-axis labels vertical for readability
+        axis.text.x = element_text(angle = 45, vjust = 1, hjust=1, size=10), 
+        axis.text.y = element_text(size=10), # make the x-axis labels vertical for readability
         axis.title.x = element_blank(), # next two lines are to remove axis titles
         axis.title.y = element_blank()) +
-  labs(fill="ANI") 
+  labs(fill="ANI") + 
+  
+  scale_y_discrete(labels=c("G. hydrophobica (44015)","G. malaquae (44454)","G. malaquae (44464)",
+                                             "G. rubripertinca (43197)","G. terrea (43249)")) +
+  scale_x_discrete(labels=c("G. hydrophobica (44015)","G. malaquae (44454)","G. malaquae (44464)",
+                            "G. rubripertinca (43197)","G. terrea (43249)")) 
 
 
 #same thing for ecoli but setup is alightly different due to how the ATCC contigs are labelled 
@@ -116,6 +139,8 @@ ani.dat<- ani.dat [1: ncol(ani.dat)-1 ]
 #reodrer all alphabetically first 
 ani.dat=ani.dat[,order(colnames(ani.dat))]
 
+colnames(ani.dat)
+
 #then reorder so the tested genomes are in the bottom left corner 
 ani.dat <- ani.dat %>%
   select(Escherichia_coli_ATCC_43888, Escherichia_coli_ATCC_15144,	Escherichia_coli_ATCC_10536, 
@@ -133,13 +158,6 @@ ani.dat <- ani.dat %>%
 data = cor(ani.dat[sapply(ani.dat, is.numeric)])
 data1 <- melt(data)
 
-data2=data1[1:20,]
-data3=data1[21:86436,]
-#reodrer all alphabetically first 
-data3=data3[order(data3$Var1),]
-
-data4=rbind(data2,data3)
-
 #jk dont need
 #library(stringr)
 #data4=data4 %>% 
@@ -148,10 +166,10 @@ data4=rbind(data2,data3)
 #                           str_detect(Var1, "Salmo" ) ~ "Salmonella"))
 
 #this is NOT the lenght of data4 but the lenght of ANI.dat
-breaks=levels(data4$Var1)[c(1,12,16,21,114,197)]
+breaks=levels(data1$Var1)[c(1,12,16,21,114,197)]
 
 # Create heatmap
-ggplot(data4, aes(Var1, Var2)) +
+ggplot(data1, aes(Var1, Var2)) +
   geom_tile(aes(fill=value)) +
   scale_fill_viridis() + # nice color scheme!ß
   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1, size=10), # make the x-axis labels vertical for readability
@@ -159,6 +177,11 @@ ggplot(data4, aes(Var1, Var2)) +
         axis.title.x = element_blank(), # next two lines are to remove axis titles
         axis.title.y = element_blank()) +
   labs(fill="ANI") + 
+  scale_y_discrete(breaks = breaks) +
+  scale_x_discrete(breaks = breaks) 
+  
+  
+  
  scale_y_discrete(breaks = breaks, labels=c("E.coli ATCC","Shigella ATCC","Salmonella ATCC",
                                             "E.coli database","Shigella database","Salmonella database")) +
   scale_x_discrete(breaks = breaks, labels=c("E.coli ATCC","Shigella ATCC","Salmonella ATCC",
@@ -167,21 +190,10 @@ ggplot(data4, aes(Var1, Var2)) +
 
 #ok now just the confirmatory guys zoomed in
 #then reorder so the tested genomes are in the bottom left corner 
-ani.dat <- ani.dat[,c("Escherichia_coli_ATCC_43888", "Escherichia_coli_ATCC_15144",	"Escherichia_coli_ATCC_10536", 
-         "Escherichia_coli_ATCC_43890", "Escherichia_coli_ATCC_BAA_2196",	"Escherichia_coli_ATCC_BAA_2192",
-         "Escherichia_coli_ATCC_43894",	"Escherichia_coli_ATCC_25922",	"Escherichia_coli_ATCC_43895", "Escherichia_coli_ATCC_35150",	
-         "Escherichia_colistr.K12.MG1655_source29",
-         "Shigella_flexneri_ATCC_29903", "Shigella_sonnei_ATCC_9290",	"Shigella_flexneri2astr.2457T"," Shigella_flexneri_ATCC_12022",
-         "Salmonella_enterica_subsp_enterica_ATCC_13076",		
-         "Salmonella_enterica_subsp_enterica_ATCC_13311",
-         "Salmonella_enterica_ATCC_14028", "Salmonella_entericasubsp_Typhimuriumstr.SL1344",
-         "Salmonella_entericaserovar_Typhimuriumstr.LT2")] 
+ani.dat2 = ani.dat[1:20]
 
-
-data = cor(ani.dat[sapply(ani.dat, is.numeric)])
+data = cor(ani.dat2[sapply(ani.dat2, is.numeric)])
 data1 <- melt(data)
-
-df[,c("name","gender")]
 
 # Create heatmap
 ggplot(data1, aes(Var1, Var2)) +
