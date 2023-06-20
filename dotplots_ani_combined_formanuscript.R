@@ -125,8 +125,9 @@ colnames(combined) <- c("X","variable","value","shape","shape2","tool","pvalue")
 combined=combined[,c("X","variable","value","shape","shape2","tool")]
 
 
-combined <- ddply(combined, .(X), transform, rescale = rescale(value))
-combined <- ddply(combined, .(variable), transform, rescale2 = rescale(value))
+#combined <- ddply(combined, .(X), transform, rescale = rescale(value))
+#combined <- ddply(combined, .(variable), transform, rescale2 = rescale(value))
+#rescale by tool
 combined <- ddply(combined, .(tool), transform, rescale3 = rescale(value))
 
 
