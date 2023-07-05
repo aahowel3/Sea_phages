@@ -9,6 +9,9 @@ ANIs: for the exploratory database ANIs the script to get only desired species t
 then you cat all those and run anvi-script-compute-ani-for-fasta -f gordonia_db_hosts_all_renamed.fasta -o ani_gordoniadb_output --method ANIb -T 10 (10 cores on local deskptop IN ANVIO CONDA ENVO)
 (might ask you to run rename first - anvi-script-reformat-fasta gordonia_db_hosts_all.fasta -o gordonia_db_hosts_all_renamed.fasta --simplify-names. You also need to run long_script.py to pull out only longest contig so the ANI was run faster 
 
+redoing these with human chr 1 tacked on for scale - downloaded from - https://www.ncbi.nlm.nih.gov/assembly/GCF_000001405.40 
+cat NC_000001.11.fna (from downloads/ncbi) >> gordonia_db_hosts_all_long2.fasta
+
 Synteny graphs: prokka and blasts alignments that feed into the synteny.R scripts are in agave /scratch/aahowel3/hostrange/KFS-EC3_hosts_long - dont want the intervals of a plasmid to be confused with the actual genome intervals. synteny.R is to get the regions for 10536 and synteny_2.R is to get regions for non-infectable bacteria 
 
 ended up using blast and BRIG instead of asynt and minimap2 to visuzliaze nonhomolgous regions but tutorial was very helpful 
