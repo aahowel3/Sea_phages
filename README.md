@@ -17,6 +17,9 @@ Synteny graphs: prokka and blasts alignments that feed into the synteny.R script
 ended up using blast and BRIG instead of asynt and minimap2 to visuzliaze nonhomolgous regions but tutorial was very helpful 
 https://github.com/simonhmartin/asynt
 
+checking ncbi status of genomes: while read line; do datasets summary genome accession $line --as-json-lines | \
+dataformat tsv genome --fields accession,assminfo-status --elide-header >> assembly_status_gordonia.list; done < ../../Documents/hostrange/outfile.txt
+
 Where are our tree outputs? pfeiferlab computer #1 10.210.91.237 - conda activate gtotree - do not run in tmux will not work
 
 April 2023 plotting - all likelihood plots are in wish.R which is in /hostrange/WISH 
