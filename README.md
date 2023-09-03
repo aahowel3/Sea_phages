@@ -2,6 +2,8 @@
 
 Where is our assembly data? /scratch/spfeife1/bacterial_hosts
 
+testing diff WISH null databases downloading more e. coli genomes from https://www.ebi.ac.uk/genomes/phage.html - on agave null4
+
 WHere are our confirmatory tools outputs - raw in agave /scratch/aahowel3/hostrange - cleaned and downloaded in local /Documents/hostrange/WISH/formanuscript
 Where are our explortory tool outputs - raw on osg or cleaned in hostrange/exploratory results 
 
