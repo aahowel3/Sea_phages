@@ -41,7 +41,7 @@ Totals should be 12 - whole genome 11 - ruvC 6 - HIcA
 location of comparitive paper viruses
 /work/aahowel3/VirHostMatcher_results/onlyDandP_viruses
 
-NEW YEAR NEW DIRECTORY BABY
+Primary Directory
 SOL - /scratch/hostrange
 source activate hostrange
 
@@ -65,7 +65,7 @@ WIsH/WIsH -c predict -g null/ -m modelDir -r outputNullModelResultDir -b 1000
 [aahowel3@cg47-1:/scratch/aahowel3/hostrange]$ WIsH/WIsH -c predict -g KFS-EC3_virus/ -m modelDir -r outputResultDir -b 1000 -n outputNullModelResultDir/nullParameters.tsv
 change b to 1000 or larger to list all the hosts 
 
-VHM - realized you dont need a taxonomizer file
+VHM - you dont need a taxonomizer file
 [aahowel3@cg47-1:/scratch/aahowel3/hostrange]$ python VirHostMatcher/vhm.py -v HY01_virus/ -b HY01_hosts/ -o HY01_VHMoutput
 
 VHMN
@@ -100,11 +100,7 @@ for x in *; do python ../PHIST/phist.py ../HY01_virus $x ${x}_out; done
 combine all predictions.csv
 find . -name 'predictions.csv' -exec cat {} \; > allpredictions.csv
 
-^^^actually dont do this - every prediction comes out weird just run it all together and take the top prediction and list that as a limitation 
-
-A note on HostG/CHERRY/PHAIST that need to be run on OSG - have to do all the conda installs in the spin up and then git clone tools in home directory since you can't touch those directories created in the spin up after the fact
-
-HostG absolute pain 
+HostG 
 1. add phage to nuc.fasta (cat genome onto it) and add protein to protein.fasta (obtained ncbi) 
 2. add to database_gene_togenome file - use commands below to create same format to tack onto d
 grep "^>" KFS-EC3.protein.fasta > KFS-EC3.protein.names.txt
@@ -130,9 +126,6 @@ Delete everything inside prokaryote directory first - saves time
 awk 1 CHERRY/dataset/prokaryote.csv KFS-EC3_taxonomy.csv > out 
 mv out prokaryote.csv - file with header in it HAS to be appended first 
 Inside the CHERRY folder: python run_Speed_up.py --contigs ../KFS-EC3_virus/KFS-EC3.fasta --mode prokaryote --t 0.0
-
-PHIAF: In PHIAF directroy: python code/compute_dna_features.py (no other arguments just have allphage_dna_seq.fasta and allhost_dna_seq.fasta in PHAIF folder - those are what your input viruses and hosts need to be renamed to) 
-dies at this step with connection reset cant tell if its finishing or not - may have to do a slurm job send off to work
 
 VHMN in main directory: python /opt/VirHostMatcher-Net/VirHostMatcher-Net.py -q KFS-EC3_virus/ -o vhmn_output -n 1000 
 *specifiy output directory or youoll never find it
